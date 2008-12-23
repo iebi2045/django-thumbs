@@ -1,6 +1,8 @@
 =django-thumbs=
 ===La forma más sencilla de crear miniaturas para imágenes con Django. Funciona con cualquier StorageBackend.===
 
+This page is also available in *[http://code.google.com/p/django-thumbs/ English]*
+
 ==Características==
 
   * Fácil de integrar en el código (no hay cambios en la base de datos, funciona como un ImageField)
