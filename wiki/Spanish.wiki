@@ -1,4 +1,5 @@
 =django-thumbs=
+
 ===La forma más sencilla de crear miniaturas para imágenes con Django. Funciona con cualquier StorageBackend.===
 
 This page is also available in *[http://code.google.com/p/django-thumbs/ English]*
@@ -13,21 +14,21 @@ This page is also available in *[http://code.google.com/p/django-thumbs/ English
 
 ==Instalar==
 
-  # Descarga _thumbs.py_ al path de python
-  # En tus modelos reemplaza `ImageField` por `ImageWithThumbsField`
-  # Añade un atributo `sizes`con de una lista de tamaños que deseas para las miniaturas
+  # Descarga [http://django-thumbs.googlecode.com/files/thumbs.py thumbs.py]
+  # Impórtalo en tu _models.py_ y reemplaza `ImageField` por `ImageWithThumbsField` en tus modelos
+  # Añade un atributo `sizes` con de una lista de tamaños que deseas para las miniaturas
   # ¡Eso es todo!
 
 ==Ejemplo funcional==
 
 _models.py_
 {{{
-  django.db importación de modelos 
-  de los pulgares de importación ImageWithThumbsField 
+from django.db import models
+from thumbs import ImageWithThumbsField
 
-  clase Persona (models.Model): 
-      foto = ImageWithThumbsField (upload_to='imagenes', sizes=((125125), (200200))) 
-      otra_foto = ImageWithThumbsField (upload_to='imagenes') 
+class Persona(models.Model):
+    foto = ImageWithThumbsField(upload_to='imagenes', sizes=((125,125),(200,200)))
+    otra_foto = ImageWithThumbsField(upload_to='imagenes')
 }}}
 
 En este ejemplo tenemos un modelo `Persona` con 2 campos imagen.
