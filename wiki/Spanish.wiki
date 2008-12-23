@@ -1,0 +1,41 @@
+=django-thumbs=
+===La forma más sencilla de crear miniaturas para imágenes con Django. Funciona con cualquier StorageBackend.===
+
+==Características==
+
+  * Fácil de integrar en el código (no hay cambios en la base de datos, funciona como un ImageField)
+  * Funciona perfectamente con StorageBackend
+  * Genera miniaturas después de que la imagen sea cargada en memoria
+  * Elimina las miniaturas cuando se elimina el archivo de imagen
+  * Fácil acceso a las URLs de las miniaturas (método similar al de ImageField)
+
+==Instalar==
+
+  # Descarga _thumbs.py_ al path de python
+  # En tus modelos reemplaza `ImageField` por `ImageWithThumbsField`
+  # Añade un atributo `sizes`con de una lista de tamaños que deseas para las miniaturas
+  # ¡Eso es todo!
+
+==Ejemplo funcional==
+
+_models.py_
+{{{
+  django.db importación de modelos 
+  de los pulgares de importación ImageWithThumbsField 
+
+  clase Persona (models.Model): 
+      foto = ImageWithThumbsField (upload_to='imagenes', sizes=((125125), (200200))) 
+      otra_foto = ImageWithThumbsField (upload_to='imagenes') 
+}}}
+
+En este ejemplo tenemos un modelo `Persona` con 2 campos imagen.
+
+Puedes ver que el campo `otra_foto`no tiene el atributo `sizes`. Este campo funciona exactamente de la misma manera que un `ImageField` normal.
+
+El campo `foto` tiene un atributo `sizes` que especifica el tamaño de las miniaturas deseadas. Este campo funciona de la misma manera que `ImageField` pero también crea las miniaturas especificadas al subir un nuevor archivo y las elimina cuando el archivo es eliminado.
+
+Con `ImageField` se obtiene la URL de la imagen con: `alguien.photo.url` Con `ImageWithThumbsField` la imagen original se obtiene de la misma manera. También se obtiene la dirección URL de cada miniatura especificando su tamaño: En este ejemplo usamos `alguien.photo.url_125x125` y `alguien.photo.url_200x200` para obtener las URLs de ambas miniaturas.
+
+==Desinstalar==
+
+En cualquier momento puedes echarte atrás y volver a usar `ImageField` de nuevo sin alterar la base de datos o cualquier otra cosa. Basta con sustituir `ImageWithThumbsField` por `ImageField` de nuevo y asegurarte de eliminar el atributo `sizes`. Todo funcionará de la misma forma que antes de usar django-thumbs. Sólo recuerda eliminar las miniaturas generadas en el caso de que no quieras seguir teniéndolas.
