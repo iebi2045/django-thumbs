@@ -2,6 +2,8 @@
 
 ===La forma más sencilla de crear miniaturas para imágenes con Django. Funciona con cualquier StorageBackend.===
 
+Importante: Parece que la versión de desarrollo de Django en su revisión 9766 y posteriores está causando algún problema con ImageFields en el sitio de administración. django-thumbs no funcionamente con esas revisiones. Por favor, utiliza la revisión 9765 ó Django 1.0.2 por el momento.
+
 This page is also available in *[http://code.google.com/p/django-thumbs/ English]*
 
 ==Características==
