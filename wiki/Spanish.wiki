@@ -19,6 +19,7 @@ This page is also available in *[http://code.google.com/p/django-thumbs/ English
   # Descarga [http://django-thumbs.googlecode.com/files/thumbs.py thumbs.py]
   # Impórtalo en tu _models.py_ y reemplaza `ImageField` por `ImageWithThumbsField` en tus modelos
   # Añade un atributo `sizes` con de una lista de tamaños que deseas para las miniaturas
+  # Asegúrate de que has definido `MEDIA_URL` en tu settings.py
   # ¡Eso es todo!
 
 ==Ejemplo funcional==
