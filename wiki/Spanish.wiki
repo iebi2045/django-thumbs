@@ -1,3 +1,4 @@
+http://media.django.es/djangothumbs.jpg
 =django-thumbs=
 
 ===La forma más sencilla de crear miniaturas para imágenes con Django. Funciona con cualquier StorageBackend.===
